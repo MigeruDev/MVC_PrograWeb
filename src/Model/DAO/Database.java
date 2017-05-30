@@ -8,7 +8,10 @@ public class Database {
 	private String port;
 	
 	private void cargar_configuracion(){
-		
+		/*
+		 * 
+		 * 
+		 */
 	}
 
 }
