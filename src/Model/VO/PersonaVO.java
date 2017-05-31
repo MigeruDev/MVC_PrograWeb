@@ -4,6 +4,7 @@ public class PersonaVO {
 	private String id;
 	private String nombre;
 	private String apellido;
+	private Integer edad;
 	
 	public PersonaVO(String id, String nombre, String apellido){
 		this.id= id;
@@ -35,6 +36,13 @@ public class PersonaVO {
 		this.id = id;
 	}
 	
+	public Integer getEdad(){
+		return edad;
+	}
+	
+	public void setEdad(Integer edad){
+		this.edad = edad;
+	}
 	@Override
 	public String toString() {
 		return this.getNombre()+" "+this.getApellido();

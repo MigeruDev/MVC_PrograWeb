@@ -6,6 +6,7 @@ import Model.ErrorConexion.AddBodyException;
 import Model.ErrorConexion.AddHeaderException;
 import Model.ErrorConexion.CloseConnectionException;
 import Model.ErrorConexion.QueryException;
+import Model.VO.PersonaVO;
 import Model.VO.Tupla;
 import Model.VO.User;
 
@@ -37,18 +38,22 @@ public class PersonaService {
         database = new DatabaseDAO(connection);
 	}
 	
-	public void validarDatosJugador(String cedula, String nombre, String apellido, String Edad) {
+	public void validarDatosPersona(PersonaVO persona) {
+		String cedula = persona.getId();
+		String nombre = persona.getNombre();
+		String apellido = persona.getApellido();
+		Integer edad = persona.getEdad();
         if (cedula == null || cedula.length() != 10) {
             throw new IllegalArgumentException("Cedula Incorrecta");
         } else if (nombre == null || nombre.length() < 1) {
             throw new IllegalArgumentException("Ingrese un nombre");
         } else if (apellido == null || apellido.length() < 1) {
-
             throw new IllegalArgumentException("Ingrese un apellido");
-        } else if (Edad == null) {
+        } else if (edad == null) {
             throw new IllegalArgumentException("La edad es incorrecta");
         }
     }
+	
 	
 	public void addElement(String tableName, Map<String, String> fields) throws QueryException, CloseConnectionException {
         database.addElement(tableName, fields);
