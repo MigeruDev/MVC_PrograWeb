@@ -5,8 +5,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Map;
 
-import com.mysql.cj.api.jdbc.Statement;
-import com.mysql.cj.x.protobuf.MysqlxNotice.Warning.Level;
 
 import Model.ErrorConexion.AddBodyException;
 import Model.ErrorConexion.AddHeaderException;
@@ -28,7 +26,7 @@ public class DatabaseDAO {
 		String query = null;
         try {
             query = Query.insertar(o);
-            stmt = (Statement) connection.createStatement();
+            stmt = connection.createStatement();
             stmt.executeUpdate(query);
         } catch (SQLException ex) {
             throw new QueryException(query, ex);
@@ -53,7 +51,7 @@ public class DatabaseDAO {
     private void update(String query) throws QueryException, CloseConnectionException {
         Statement stmt = null;
         try {
-            stmt = (Statement) connection.createStatement();
+            stmt = connection.createStatement();
             stmt.executeUpdate(query);
         } catch (SQLException ex) {
             throw new QueryException(query, ex);
@@ -136,7 +134,7 @@ public class DatabaseDAO {
         Statement stmt = null;
         ArrayList<ArrayList<String>> datos = new ArrayList<>();
         try {
-            stmt = (Statement) connection.createStatement();
+            stmt = connection.createStatement();
             ResultSet result = stmt.executeQuery(query);
             addBody(datos, result);
             return datos;
