@@ -7,10 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 319963ced21aaf64429d3a8acf82b32460749870
 import Model.ErrorConexion.AddBodyException;
 import Model.ErrorConexion.AddHeaderException;
 import Model.ErrorConexion.CloseConnectionException;
