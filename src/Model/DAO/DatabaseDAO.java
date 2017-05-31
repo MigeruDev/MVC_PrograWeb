@@ -7,6 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 319963ced21aaf64429d3a8acf82b32460749870
 import Model.ErrorConexion.AddBodyException;
 import Model.ErrorConexion.AddHeaderException;
 import Model.ErrorConexion.CloseConnectionException;
@@ -53,7 +57,7 @@ public class DatabaseDAO {
     private void update(String query) throws QueryException, CloseConnectionException {
         Statement stmt = null;
         try {
-            stmt = (Statement) connection.createStatement();
+            stmt = connection.createStatement();
             stmt.executeUpdate(query);
         } catch (SQLException ex) {
             throw new QueryException(query, ex);
@@ -136,7 +140,7 @@ public class DatabaseDAO {
         Statement stmt = null;
         ArrayList<ArrayList<String>> datos = new ArrayList<>();
         try {
-            stmt = (Statement) connection.createStatement();
+            stmt = connection.createStatement();
             ResultSet result = stmt.executeQuery(query);
             addBody(datos, result);
             return datos;
