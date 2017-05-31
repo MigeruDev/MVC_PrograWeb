@@ -1,12 +1,11 @@
-
 package Model.DAO;
- 
-import java.sql.*;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
-
-import com.mysql.cj.api.jdbc.Statement;
-import com.mysql.cj.x.protobuf.MysqlxNotice.Warning.Level;
 
 import Model.ErrorConexion.AddBodyException;
 import Model.ErrorConexion.AddHeaderException;
@@ -14,6 +13,7 @@ import Model.ErrorConexion.CloseConnectionException;
 import Model.ErrorConexion.QueryException;
 import Model.VO.Query;
 import Model.VO.Tupla;
+
 
 public class DatabaseDAO {
 	
@@ -28,7 +28,7 @@ public class DatabaseDAO {
 		String query = null;
         try {
             query = Query.insertar(o);
-            stmt = (Statement) connection.createStatement();
+            stmt = connection.createStatement();
             stmt.executeUpdate(query);
         } catch (SQLException ex) {
             throw new QueryException(query, ex);

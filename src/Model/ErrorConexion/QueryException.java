@@ -7,9 +7,9 @@ package Model.ErrorConexion;
 
 import java.sql.SQLException;
 
-/**
+/*
+ * 
  *
- * @author diegoM
  */
 public class QueryException extends Exception {
     
